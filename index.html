@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="profile" content="https://github.com/codeOchoa">
+    <meta name="copyright" content="codeOchoa">
+    <meta name="description" content="calcular impuestos, conversion de peso a dolar">
+    <meta name="keywords" content="impuesto, precio, dolar">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./ico2.jpg">
+    <title>Impuestos</title>
+</head>
+
+<body>
+    <section class="section">
+        <header class="section_header">
+            <div class="setion_header_div">
+                <div class="setion_header_div_div">
+                    <div class="setion_header_div_div_div">
+                        <div class="div_logo">
+                            <img class="logo" src="./ico2.jpg" alt="Logo">
+                            <span class="title">Impuestos</span></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="section_div">
+            <div class="section_div_div1">
+                <div class="section_div_div1_div1">
+                    <span>$</span>
+                    <input class="amount" id="baseAmount" type="number" min="0" max="999999" title="Ingrese un monto en pesos o dólares" placeholder="Calcular una compra" value="" autofocus="">
+                </div>
+                <div class="section_div_div1_div2">
+                    <span class="currency_usd">USD</span>
+                    <span class="currency_ars">ARS</span>
+                </div>
+            </div>
+            <div class="section_div_div2">
+                <div class="section_div_div2_div1">
+                    <div class="tax-row">
+                        <span>IVA (21%)</span>
+                        <span class="tax-amount" id="ivaAmount">AR$ 0,00</span>
+                    </div>
+                    <div class="tax-row">
+                        <span>PAIS (8%)</span>
+                        <span class="tax-amount" id="countryAmount">AR$ 0,00</span>
+                    </div>
+                    <div class="tax-row">
+                        <span>Ganancias (30%)</span>
+                        <span class="tax-amount" id="profitAmount">AR$ 0,00</span>
+                    </div>
+                    <div class="tax-row">
+                        <span class="regionTax">IIBB 
+                            <select id="provinceSelect" title="Provincia" name="Provincia">
+                                <option value="2.0">CABA (2.0%)</option>
+                                <option value="2.0">Buenos Aires (2.0%)</option>
+                                <option value="0.0">Catamarca (0.0%)</option>
+                                <option value="5.5">Chaco (5.5%)</option>
+                                <option value="0.0">Chubut (0.0%)</option>
+                                <option value="0.0">Corrientes (0.0%)</option>
+                                <option value="3.0">Córdoba (3.0%)</option>
+                                <option value="0.0">Entre Ríos (0.0%)</option>
+                                <option value="0.0">Formosa (0.0%)</option>
+                                <option value="0.0">Jujuy (0.0%)</option>
+                                <option value="1.0">La Pampa (1.0%)</option>
+                                <option value="0.0">La Rioja (0.0%)</option>
+                                <option value="0.0">Mendoza (0.0%)</option>
+                                <option value="0.0">Misiones (0.0%)</option>
+                                <option value="4.0">Neuquén (4.0%)</option>
+                                <option value="5.0">Río Negro (5.0%)</option>
+                                <option value="0.0">San Juan (0.0%)</option>
+                                <option value="0.0">San Luis (0.0%)</option>
+                                <option value="3.6">Salta (3.6%)</option>
+                                <option value="0.0">Santa Cruz (0.0%)</option>
+                                <option value="0.0">Santa Fe (0.0%)</option>
+                                <option value="0.0">Sgo. del Estero (0.0%)</option>
+                                <option value="3.0">T. del Fuego (3.0%)</option>
+                                <option value="0.0">Tucumán (0.0%)</option>
+                            </select>
+                        </span>
+                        <span class="tax-amount" id="iibbAmount">AR$ 0,00</span>
+                        </div>
+                </div>
+                <br>
+                <div class="section_div_div2_div2">
+                    <div class="withoutTax">Sin impuestos</div>
+                    <div class="div_totalWithoutTax">
+                        <span class="totalWithoutTax" id="totalWithoutTax">AR$ 0,00</span>
+                    </div>
+                </div>
+                <div class="section_div_div2_div3">
+                    <div class="withTax">Total c/ imp.</div>
+                    <div class="div_totalTax">
+                        <span class="totalTax" id="totalTax">AR$ 0,00</span>
+                    </div>
+                </div>
+                <div class="section_div_div2_div4">
+                    <span class="infoDolar">Dólar oficial AR$ <span id="dollarRate">982</span> by Dolarito.ar - 17 de septiembre del 2024.</span>
+                </div>
+                <div class="div_addToCartBtn">
+                    <button id="addToCartBtn">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+        <div class="cartContainer" id="cartContainer">
+            <h3>Carrito de Compras</h3>
+            <ul id="cartItemsList"></ul>
+            <div class="cartTotal" id="cartTotal">Total: AR$ 0.00</div>
+        </div>
+    </section>
+    <script src="./script.js"></script>
+</body>
+
+</html>
