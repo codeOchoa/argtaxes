@@ -5,13 +5,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const inputUS = document.getElementById("inputU");
     const ivaT = document.getElementById("ivaT");
     const profitT = document.getElementById("profitT");
+    const wichT = document.getElementById("wichT");
     const iibbT = document.getElementById("iibbT");
     const woT = document.getElementById("woT");
     const totalT = document.getElementById("totalT");
-    const wichT = document.getElementById("wichT");
+    const totalR = document.getElementById("totalR");
     const addToCartBtn = document.getElementById("addToCartBtn");
     const cartItemsList = document.getElementById("cartItemsList");
     const cartTotal = document.getElementById("cartTotal");
+    const copyTotal = document.getElementById("copyTotal");
     const dollarRate = 1058; // Actualizar con el valor del dolar tarjeta
 
     if (!inputUS || !ivaT || !addToCartBtn) {
@@ -32,9 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
     function calculateTaxes() {
         let inputU = parseFloat(inputUS.value) || 0;
         let baseAmountInPesos = inputU * dollarRate;
-        let beautifulTaxes = baseAmountInPesos * 1.10;
+        let beautifulTaxes = baseAmountInPesos;
 
-        woT.textContent = `$ ${formatAmount(beautifulTaxes)}`;
+        woT.textContent = `$ ${formatAmount(baseAmountInPesos)}`;
 
         let iva = beautifulTaxes * 0.21;
         let ganancias = beautifulTaxes * 0.30;
@@ -45,8 +47,10 @@ document.addEventListener("DOMContentLoaded", function () {
         iibbT.textContent = `$ ${formatAmount(iibb)}`;
 
         const totalImpuestos = iva + ganancias + iibb;
-        totalT.textContent = `$ ${formatAmount(beautifulTaxes + totalImpuestos)}`;
-        return beautifulTaxes + totalImpuestos;
+        totalT.textContent = `$ ${formatAmount(totalImpuestos)}`;
+        const resumenTotal = baseAmountInPesos + totalImpuestos;
+        totalR.textContent = `$ ${formatAmount(resumenTotal)}`;
+        return resumenTotal;
     }
 
     function addToCart() {
@@ -76,6 +80,16 @@ document.addEventListener("DOMContentLoaded", function () {
             cartItemsList.removeChild(listItem);
             cartItems = cartItems.filter((_, index) => index !== cartItems.indexOf(amountWithTaxes));
             updateCartTotal();
+
+            Toastify({
+                text: "El ítem fue eliminado correctamente!",
+                duration: 3000,
+                close: true,
+                gravity: "bottom",
+                position: "right",
+                backgroundColor: "linear-gradient(to right, #990000, #FF6666)",
+                stopOnFocus: true,
+            }).showToast();
         });
 
         listItem.appendChild(deleteButton);
@@ -99,7 +113,25 @@ document.addEventListener("DOMContentLoaded", function () {
         cartTotal.textContent = `Total: $ ${formatAmount(total)}`;
     }
 
+    function copyTotalToClipboard() {
+        const totalText = totalR.textContent.replace("$ ", "");
+        navigator.clipboard.writeText(totalText).then(() => {
+            Toastify({
+                text: "Copiado al portapapeles!",
+                duration: 3000,
+                close: true,
+                gravity: "bottom",
+                position: "right",
+                backgroundColor: "linear-gradient(to right, #7D7D7D, #A6A6A6)",
+                stopOnFocus: true,
+            }).showToast();
+        }).catch(err => {
+            console.error('Error al copiar el texto: ', err);
+        });
+    }
+
     inputUS.addEventListener("input", calculateTaxes);
     wichT.addEventListener("change", calculateTaxes);
     addToCartBtn.addEventListener("click", addToCart);
+    copyTotal.addEventListener("click", copyTotalToClipboard);
 });
