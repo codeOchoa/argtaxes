@@ -2,116 +2,907 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="profile" content="https://github.com/codeOchoa">
-    <meta name="copyright" content="codeOchoa">
-    <meta name="description" content="calcular impuestos, conversion de peso a dolar">
-    <meta name="keywords" content="impuesto, precio, dolar">
-    <meta name="robots" content="index, follow">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="./ico2.jpg">
+    <meta charset="UTF-8" />
+    <meta name="profile" content="https://github.com/codeOchoa" />
+    <meta name="copyright" content="codeOchoa" />
+    <meta name="description" content="calcular impuestos, conversion de peso a dolar" />
+    <meta name="keywords" content="impuesto, precio, dolar" />
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/output.css" />
+    <link rel="icon" href="./public/ico2.jpg" />
     <title>Impuestos</title>
 </head>
 
 <body>
-    <section class="section">
-        <header class="section_header">
-            <div class="setion_header_div">
-                <div class="setion_header_div_div">
-                    <div class="setion_header_div_div_div">
-                        <div class="div_logo">
-                            <img class="logo" src="./ico2.jpg" alt="Logo">
-                            <span class="title">Impuestos</span></div>
-                    </div>
-                </div>
+    <div class="circle">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+    <main class="main
+        bg-[linear-gradient(90deg,_transparent_0%,_#F0F0F0_10%,_#F0F0F0_90%,_transparent_100%)]
+        gap-y-4 
+        grid 
+        max-w-[440px] 
+        m-auto">
+        <header class="main_header">
+            <div class="main_header_div">
+                <a href="#" alt="Inicio"><img class="logo" src="./public/logoWE2.png" alt="Logo" /></a>
             </div>
         </header>
-        <div class="section_div">
-            <div class="section_div_div1">
-                <div class="section_div_div1_div1">
-                    <span>$</span>
-                    <input class="amount" id="baseAmount" type="number" min="0" max="999999" title="Ingrese un monto en pesos o dólares" placeholder="Calcular una compra" value="" autofocus="">
-                </div>
-                <div class="section_div_div1_div2">
-                    <span class="currency_usd">USD</span>
-                    <span class="currency_ars">ARS</span>
-                </div>
-            </div>
-            <div class="section_div_div2">
-                <div class="section_div_div2_div1">
-                    <div class="tax-row">
-                        <span>IVA (21%)</span>
-                        <span class="tax-amount" id="ivaAmount">AR$ 0,00</span>
-                    </div>
-                    <div class="tax-row">
-                        <span>PAIS (8%)</span>
-                        <span class="tax-amount" id="countryAmount">AR$ 0,00</span>
-                    </div>
-                    <div class="tax-row">
-                        <span>Ganancias (30%)</span>
-                        <span class="tax-amount" id="profitAmount">AR$ 0,00</span>
-                    </div>
-                    <div class="tax-row">
-                        <span class="regionTax">IIBB 
-                            <select id="provinceSelect" title="Provincia" name="Provincia">
-                                <option value="2.0">CABA (2.0%)</option>
-                                <option value="2.0">Buenos Aires (2.0%)</option>
-                                <option value="0.0">Catamarca (0.0%)</option>
-                                <option value="5.5">Chaco (5.5%)</option>
-                                <option value="0.0">Chubut (0.0%)</option>
-                                <option value="0.0">Corrientes (0.0%)</option>
-                                <option value="3.0">Córdoba (3.0%)</option>
-                                <option value="0.0">Entre Ríos (0.0%)</option>
-                                <option value="0.0">Formosa (0.0%)</option>
-                                <option value="0.0">Jujuy (0.0%)</option>
-                                <option value="1.0">La Pampa (1.0%)</option>
-                                <option value="0.0">La Rioja (0.0%)</option>
-                                <option value="0.0">Mendoza (0.0%)</option>
-                                <option value="0.0">Misiones (0.0%)</option>
-                                <option value="4.0">Neuquén (4.0%)</option>
-                                <option value="5.0">Río Negro (5.0%)</option>
-                                <option value="0.0">San Juan (0.0%)</option>
-                                <option value="0.0">San Luis (0.0%)</option>
-                                <option value="3.6">Salta (3.6%)</option>
-                                <option value="0.0">Santa Cruz (0.0%)</option>
-                                <option value="0.0">Santa Fe (0.0%)</option>
-                                <option value="0.0">Sgo. del Estero (0.0%)</option>
-                                <option value="3.0">T. del Fuego (3.0%)</option>
-                                <option value="0.0">Tucumán (0.0%)</option>
-                            </select>
-                        </span>
-                        <span class="tax-amount" id="iibbAmount">AR$ 0,00</span>
+        <div class="flex flex-col gap-4">
+            <div class="flex w-full flex-col gap-2">
+                <div class="relative inline-flex shrink-0">
+                    <div data-slot="base" class="inline-flex w-full" aria-label="Options">
+                        <div data-slot="tabList"
+                            class="flex 
+                                p-1 
+                                h-fit
+                                gap-2 
+                                items-center 
+                                flex-nowrap 
+                                overflow-x-scroll 
+                                scrollbar-hide 
+                                bg-default-100 
+                                rounded-full 
+                                w-full"
+                            aria-label="Options" role="tablist"
+                            aria-orientation="horizontal">
+                            <button data-slot="tab" data-key="digital"
+                                aria-selected="true" role="tab"
+                                class="z-0 
+                                    px-3 
+                                    py-1 
+                                    flex 
+                                    group 
+                                    relative 
+                                    justify-center 
+                                    items-center 
+                                    cursor-pointer 
+                                    transition-opacity 
+                                    tap-highlight-transparent 
+                                    data-[disabled=true]:cursor-not-allowed 
+                                    data-[disabled=true]:opacity-30 
+                                    data-[hover-unselected=true]:opacity-disabled 
+                                    outline-none 
+                                    data-[focus-visible=true]:z-10 
+                                    data-[focus-visible=true]:outline-2 
+                                    data-[focus-visible=true]:outline-focus 
+                                    data-[focus-visible=true]:outline-offset-2 
+                                    text-medium 
+                                    rounded-full 
+                                    flex-1 
+                                    w-full 
+                                    h-[40px]"
+                                type="button" tabindex="0" data-selected="true">
+                                <span
+                                    class="absolute 
+                                        z-0 
+                                        inset-0 
+                                        rounded-full 
+                                        bg-background 
+                                        dark:bg-default 
+                                        shadow-small"
+                                    data-slot="cursor" style="transform: none; transform-origin: 50% 50% 0px"></span>
+                                <div class="relative 
+                                    z-10 whitespace-nowrap 
+                                    transition-colors 
+                                    text-default-500 
+                                    group-data-[selected=true]:text-default-foreground"
+                                    data-slot="tabContent">
+                                    <div class="flex 
+                                        items-center 
+                                        text-sm">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide 
+                                                lucide-gamepad2 
+                                                inline 
+                                                mr-1">
+                                            <line x1="6" x2="10" y1="11" y2="11"></line>
+                                            <line x1="8" x2="8" y1="9" y2="13"></line>
+                                            <line x1="15" x2="15.01" y1="12" y2="12"></line>
+                                            <line x1="18" x2="18.01" y1="10" y2="10"></line>
+                                            <path
+                                                d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z">
+                                            </path>
+                                        </svg>
+                                        Compra digital
+                                    </div>
+                                </div>
+                            </button><button data-slot="tab" data-key="fisico"
+                                aria-selected="false" role="tab"
+                                class="z-0 
+                                    px-3 
+                                    py-1 
+                                    flex 
+                                    group 
+                                    relative 
+                                    justify-center 
+                                    items-center 
+                                    cursor-pointer 
+                                    transition-opacity 
+                                    tap-highlight-transparent 
+                                    data-[disabled=true]:cursor-not-allowed 
+                                    data-[disabled=true]:opacity-30 
+                                    data-[hover-unselected=true]:opacity-disabled 
+                                    outline-none 
+                                    data-[focus-visible=true]:z-10 
+                                    data-[focus-visible=true]:outline-2 
+                                    data-[focus-visible=true]:outline-focus 
+                                    data-[focus-visible=true]:outline-offset-2 
+                                    text-medium 
+                                    rounded-full 
+                                    flex-1 
+                                    w-full 
+                                    h-[40px]"
+                                type="button" tabindex="-1">
+                                <div class="relative 
+                                    z-10 
+                                    whitespace-nowrap 
+                                    transition-colors 
+                                    text-default-500 
+                                    group-data-[selected=true]:text-default-foreground"
+                                    data-slot="tabContent">
+                                    <div class="flex 
+                                        items-center 
+                                        text-sm">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-package inline mr-1">
+                                            <path d="m7.5 4.27 9 5.15"></path>
+                                            <path
+                                                d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z">
+                                            </path>
+                                            <path d="m3.3 7 8.7 5 8.7-5"></path>
+                                            <path d="M12 22V12"></path>
+                                        </svg>
+                                        Importaciones
+                                    </div>
+                                </div>
+                            </button>
                         </div>
-                </div>
-                <br>
-                <div class="section_div_div2_div2">
-                    <div class="withoutTax">Sin impuestos</div>
-                    <div class="div_totalWithoutTax">
-                        <span class="totalWithoutTax" id="totalWithoutTax">AR$ 0,00</span>
                     </div>
-                </div>
-                <div class="section_div_div2_div3">
-                    <div class="withTax">Total c/ imp.</div>
-                    <div class="div_totalTax">
-                        <span class="totalTax" id="totalTax">AR$ 0,00</span>
-                    </div>
-                </div>
-                <div class="section_div_div2_div4">
-                    <span class="infoDolar">Dólar oficial AR$ <span id="dollarRate">982</span> by Dolarito.ar - 17 de septiembre del 2024.</span>
-                </div>
-                <div class="div_addToCartBtn">
-                    <button id="addToCartBtn">Agregar al carrito</button>
                 </div>
             </div>
+            <div class="group 
+                flex 
+                flex-col 
+                data-[hidden=true]:hidden 
+                w-full relative 
+                justify-end 
+                data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_12px)] 
+                is-filled"
+                data-slot="base" data-filled="true" data-filled-within="true" data-hover="true" data-has-value="true">
+                <div data-slot="main-wrapper" class="h-full flex flex-col">
+                    <div data-slot="input-wrapper"
+                        class="relative 
+                            w-full 
+                            inline-flex 
+                            tap-highlight-transparent 
+                            flex-row 
+                            items-center 
+                            shadow-sm 
+                            gap-3 
+                            border-medium 
+                            border-default-200 
+                            data-[hover=true]:border-default-400 
+                            group-data-[focus=true]:border-default-foreground 
+                            h-12 
+                            min-h-12 
+                            rounded-full 
+                            transition-background 
+                            !duration-150 
+                            px-5 
+                            transition-colors 
+                            motion-reduce:transition-none 
+                            is-filled"
+                        style="cursor: text" data-hover="true">
+                        <div data-slot="inner-wrapper" class="inline-flex 
+                            w-full 
+                            items-center 
+                            h-full 
+                            box-border">
+                            <div class="pointer-events-none 
+                                flex 
+                                items-center">
+                                <span class="text-md 
+                                    text-black">$</span>
+                            </div>
+                            <input data-slot="input" data-has-start-content="true" data-has-end-content="true"
+                                class="w-full 
+                                    font-normal 
+                                    bg-transparent 
+                                    !outline-none 
+                                    placeholder:text-foreground-500 
+                                    focus-visible:outline-none 
+                                    data-[has-start-content=true]:ps-1.5 
+                                    data-[has-end-content=true]:pe-1.5 
+                                    file:cursor-pointer 
+                                    file:bg-transparent 
+                                    file:border-0 
+                                    autofill:bg-transparent 
+                                    bg-clip-text 
+                                    text-medium 
+                                    is-filled"
+                                aria-label="0.00" type="number" placeholder="0.00" id="inputU" min="0"
+                                max="999999" title="" data-filled-within="true" data-filled="true" />
+                            <div class="relative 
+                                inline-flex 
+                                shrink-0">
+                                <div class="flex 
+                                    items-center">
+                                    <label class="sr-only" for="currency">Currency</label><select
+                                        class="outline-none 
+                                            border-0 
+                                            bg-transparent 
+                                            text-default-400 
+                                            text-md"
+                                        id="currency" name="currency">
+                                        <option value="USD">USD</option>
+                                        <option value="ARS">ARS</option>
+                                        <option value="EUR">EUR</option>
+                                    </select>
+                                </div>
+                                <span
+                                    class="flex 
+                                        z-10 
+                                        flex-wrap 
+                                        absolute 
+                                        box-border 
+                                        rounded-full 
+                                        whitespace-nowrap 
+                                        place-content-center 
+                                        origin-center 
+                                        items-center 
+                                        select-none 
+                                        font-regular 
+                                        scale-100 
+                                        opacity-100 
+                                        subpixel-antialiased 
+                                        data-[invisible=true]:scale-0 
+                                        data-[invisible=true]:opacity-0 
+                                        px-1 
+                                        text-tiny 
+                                        border-2 
+                                        border-background 
+                                        bg-warning 
+                                        text-warning-foreground 
+                                        w-3 
+                                        h-3 
+                                        min-w-3
+                                        min-h-3 
+                                        translate-x-1/2 
+                                        -translate-y-1/2 
+                                        top-[50%] 
+                                        right-[-6px]"
+                                    data-invisible="true"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="px-3 py-2">
+                <div>
+                    <div class="flex flex-col gap-2">
+                        <div class="flex 
+                            flex-row 
+                            justify-between 
+                            w-full">
+                            <label
+                                class="group 
+                                    relative 
+                                    max-w-fit 
+                                    inline-flex 
+                                    items-center 
+                                    justify-start 
+                                    cursor-pointer 
+                                    tap-highlight-transparent 
+                                    p-2 
+                                    -m-2 
+                                    select-none"
+                                data-selected="true"><input aria-label=" " aria-labelledby=":rl:"
+                                    class="[--cursor-hit-x:8px] 
+                                        font-inherit 
+                                        text-[100%] 
+                                        leading-[1.15] 
+                                        m-0 
+                                        p-0 
+                                        overflow-visible 
+                                        box-border 
+                                        absolute 
+                                        top-0 
+                                        start-[calc(var(--cursor-hit-x)*-1)] 
+                                        w-[calc(100%+var(--cursor-hit-x)*2)] 
+                                        h-full 
+                                        opacity-[0.0001] 
+                                        z-[1] 
+                                        cursor-pointer 
+                                        disabled:cursor-default"
+                                    type="checkbox" value="iva" checked="" title="" /><span aria-hidden="true"
+                                    class="relative 
+                                        inline-flex 
+                                        items-center 
+                                        justify-center 
+                                        flex-shrink-0 
+                                        overflow-hidden 
+                                        before:content-[''] 
+                                        before:absolute 
+                                        before:inset-0 
+                                        before:border-solid 
+                                        before:border-2 
+                                        before:box-border 
+                                        before:border-default 
+                                        after:content-[''] 
+                                        after:absolute 
+                                        after:inset-0 
+                                        after:scale-50 
+                                        after:opacity-0 
+                                        after:origin-center 
+                                        group-data-[selected=true]:after:scale-100 
+                                        group-data-[selected=true]:after:opacity-100 
+                                        group-data-[hover=true]:before:bg-default-100 
+                                        outline-none 
+                                        group-data-[focus-visible=true]:z-10 
+                                        group-data-[focus-visible=true]:ring-2 
+                                        group-data-[focus-visible=true]:ring-focus 
+                                        group-data-[focus-visible=true]:ring-offset-2 
+                                        group-data-[focus-visible=true]:ring-offset-background 
+                                        after:bg-success 
+                                        after:text-success-foreground 
+                                        text-success-foreground 
+                                        w-5 
+                                        h-5 
+                                        me-2 
+                                        rounded-[calc(theme(borderRadius.medium)*0.6)] 
+                                        before:rounded-[calc(theme(borderRadius.medium)*0.6)] 
+                                        after:rounded-[calc(theme(borderRadius.medium)*0.6)] 
+                                        before:transition-colors 
+                                        group-data-[pressed=true]:scale-95 
+                                        transition-transform 
+                                        after:transition-transform-opacity 
+                                        after:!ease-linear 
+                                        after:!duration-200 
+                                        motion-reduce:transition-none"><svg
+                                        aria-hidden="true" role="presentation" viewBox="0 0 17 18"
+                                        class="z-10 
+                                            opacity-0 
+                                            group-data-[selected=true]:opacity-100 
+                                            pointer-events-none 
+                                            w-4 
+                                            h-3 
+                                            transition-opacity 
+                                            motion-reduce:transition-none">
+                                        <polyline fill="none" points="1 9 7 14 15 4" stroke="currentColor"
+                                            stroke-dasharray="22" stroke-dashoffset="44" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2"
+                                            style="transition: stroke-dashoffset 250ms linear 0.2s"></polyline>
+                                    </svg></span><span
+                                    class="relative 
+                                        text-foreground 
+                                        select-none 
+                                        text-medium 
+                                        transition-colors-opacity 
+                                        before:transition-width
+                                        motion-reduce:transition-none">IVA
+                                    21%</span></label><span id="ivaT">$&nbsp;--</span>
+                        </div>
+                        <div class="flex 
+                            flex-row 
+                            justify-between 
+                            w-full">
+                            <label
+                                class="group 
+                                    relative 
+                                    max-w-fit 
+                                    inline-flex 
+                                    items-center 
+                                    justify-start 
+                                    cursor-pointer 
+                                    tap-highlight-transparent 
+                                    p-2 
+                                    -m-2 
+                                    select-none"
+                                data-selected="true"><input aria-label=" " aria-labelledby=":rm:"
+                                    class="[--cursor-hit-x:8px] 
+                                        font-inherit 
+                                        text-[100%] 
+                                        leading-[1.15] 
+                                        m-0 
+                                        p-0 
+                                        overflow-visible 
+                                        box-border 
+                                        absolute 
+                                        top-0 
+                                        start-[calc(var(--cursor-hit-x)*-1)] 
+                                        w-[calc(100%+var(--cursor-hit-x)*2)] 
+                                        h-full opacity-[0.0001] 
+                                        z-[1] 
+                                        cursor-pointer 
+                                        disabled:cursor-default"
+                                    type="checkbox" value="ganancias" checked="" title="" /><span aria-hidden="true"
+                                    class="relative 
+                                        inline-flex 
+                                        items-center 
+                                        justify-center 
+                                        flex-shrink-0 
+                                        overflow-hidden 
+                                        before:content-[''] 
+                                        before:absolute 
+                                        before:inset-0 
+                                        before:border-solid 
+                                        before:border-2 
+                                        before:box-border 
+                                        before:border-default 
+                                        after:content-[''] 
+                                        after:absolute 
+                                        after:inset-0 
+                                        after:scale-50 
+                                        after:opacity-0 
+                                        after:origin-center 
+                                        group-data-[selected=true]:after:scale-100 
+                                        group-data-[selected=true]:after:opacity-100 
+                                        group-data-[hover=true]:before:bg-default-100 
+                                        outline-none group-data-[focus-visible=true]:z-10 
+                                        group-data-[focus-visible=true]:ring-2 
+                                        group-data-[focus-visible=true]:ring-focus 
+                                        group-data-[focus-visible=true]:ring-offset-2 
+                                        group-data-[focus-visible=true]:ring-offset-background 
+                                        after:bg-success 
+                                        after:text-success-foreground 
+                                        text-success-foreground 
+                                        w-5 
+                                        h-5 
+                                        me-2 
+                                        rounded-[calc(theme(borderRadius.medium)*0.6)] 
+                                        before:rounded-[calc(theme(borderRadius.medium)*0.6)] 
+                                        after:rounded-[calc(theme(borderRadius.medium)*0.6)] 
+                                        before:transition-colors 
+                                        group-data-[pressed=true]:scale-95 
+                                        transition-transform 
+                                        after:transition-transform-opacity 
+                                        after:!ease-linear 
+                                        after:!duration-200 
+                                        motion-reduce:transition-none"><svg
+                                        aria-hidden="true" role="presentation" viewBox="0 0 17 18"
+                                        class="z-10 opacity-0 group-data-[selected=true]:opacity-100 pointer-events-none w-4 h-3 transition-opacity motion-reduce:transition-none">
+                                        <polyline fill="none" points="1 9 7 14 15 4" stroke="currentColor"
+                                            stroke-dasharray="22" stroke-dashoffset="44" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2"
+                                            style="transition: stroke-dashoffset 250ms linear 0.2s"></polyline>
+                                    </svg></span><span
+                                    class="relative 
+                                        text-foreground 
+                                        select-none 
+                                        text-medium 
+                                        transition-colors-opacity 
+                                        before:transition-width 
+                                        motion-reduce:transition-none">Ganancias
+                                    30%</span></label><span id="profitT">$&nbsp;--</span>
+                        </div>
+                        <div class="flex 
+                            flex-row 
+                            justify-between 
+                            w-full">
+                            <div class="flex 
+                                flex-row 
+                                items-center">
+                                <label
+                                    class="group 
+                                        relative 
+                                        max-w-fit 
+                                        inline-flex 
+                                        items-center 
+                                        justify-start 
+                                        cursor-pointer 
+                                        tap-highlight-transparent 
+                                        p-2 
+                                        -m-2 
+                                        select-none"
+                                    data-selected="true"><input aria-label=" " aria-labelledby=":rn:"
+                                        class="[--cursor-hit-x:8px] 
+                                            font-inherit 
+                                            text-[100%] 
+                                            leading-[1.15] 
+                                            m-0 
+                                            p-0 
+                                            overflow-visible 
+                                            box-border 
+                                            absolute 
+                                            top-0 
+                                            start-[calc(var(--cursor-hit-x)*-1)] 
+                                            w-[calc(100%+var(--cursor-hit-x)*2)] 
+                                            h-full 
+                                            opacity-[0.0001] 
+                                            z-[1] 
+                                            cursor-pointer 
+                                            disabled:cursor-default"
+                                        type="checkbox" value="iibb" checked="" title="" /><span aria-hidden="true"
+                                        class="relative 
+                                            inline-flex 
+                                            items-center 
+                                            justify-center 
+                                            flex-shrink-0 
+                                            overflow-hidden 
+                                            before:content-[''] 
+                                            before:absolute 
+                                            before:inset-0 
+                                            before:border-solid 
+                                            before:border-2 
+                                            before:box-border 
+                                            before:border-default 
+                                            after:content-[''] 
+                                            after:absolute 
+                                            after:inset-0 
+                                            after:scale-50 
+                                            after:opacity-0 
+                                            after:origin-center 
+                                            group-data-[selected=true]:after:scale-100 
+                                            group-data-[selected=true]:after:opacity-100 
+                                            group-data-[hover=true]:before:bg-default-100 
+                                            outline-none 
+                                            group-data-[focus-visible=true]:z-10 
+                                            group-data-[focus-visible=true]:ring-2 
+                                            group-data-[focus-visible=true]:ring-focus 
+                                            group-data-[focus-visible=true]:ring-offset-2 
+                                            group-data-[focus-visible=true]:ring-offset-background 
+                                            after:bg-success 
+                                            after:text-success-foreground 
+                                            text-success-foreground 
+                                            w-5 
+                                            h-5 
+                                            me-2 
+                                            rounded-[calc(theme(borderRadius.medium)*0.6)] 
+                                            before:rounded-[calc(theme(borderRadius.medium)*0.6)] 
+                                            after:rounded-[calc(theme(borderRadius.medium)*0.6)] 
+                                            before:transition-colors 
+                                            group-data-[pressed=true]:scale-95 
+                                            transition-transform 
+                                            after:transition-transform-opacity 
+                                            after:!ease-linear 
+                                            after:!duration-200 
+                                            motion-reduce:transition-none"><svg
+                                            aria-hidden="true" role="presentation" viewBox="0 0 17 18"
+                                            class="z-10 
+                                                opacity-0 
+                                                group-data-[selected=true]:opacity-100 
+                                                pointer-events-none
+                                                w-4 
+                                                h-3 
+                                                transition-opacity 
+                                                motion-reduce:transition-none">
+                                            <polyline fill="none" points="1 9 7 14 15 4" stroke="currentColor"
+                                                stroke-dasharray="22" stroke-dashoffset="44" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2" style="
+                            transition: stroke-dashoffset 250ms linear 0.2s;
+                            "></polyline>
+                                        </svg></span><span
+                                        class="relative 
+                                            text-foreground 
+                                            select-none 
+                                            text-medium 
+                                            transition-colors-opacity 
+                                            before:transition-width 
+                                            motion-reduce:transition-none"
+                                            id="wichT">IIBB
+                                        2.0%
+                                    </span></label>
+                                <div
+                                    class="relative 
+                                        max-w-fit 
+                                        min-w-min 
+                                        inline-flex 
+                                        items-center 
+                                        justify-between 
+                                        box-border 
+                                        whitespace-nowrap 
+                                        px-1 
+                                        h-6 
+                                        text-tiny 
+                                        rounded-full 
+                                        bg-default 
+                                        text-default-foreground 
+                                        ml-2 
+                                        cursor-pointer">
+                                    <span class="flex-1 
+                                        text-inherit 
+                                        font-normal 
+                                        px-1"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-ellipsis-vertical">
+                                            <circle cx="12" cy="12" r="1"></circle>
+                                            <circle cx="12" cy="5" r="1"></circle>
+                                            <circle cx="12" cy="19" r="1"></circle>
+                                        </svg></span>
+                                </div>
+                            </div>
+                            <span id="iibbT">$&nbsp;--</span>
+                        </div>
+                    </div>
+                    <div class="flex 
+                        flex-col 
+                        gap-2 
+                        my-5">
+                        <div class="flex 
+                            flex-row 
+                            justify-between 
+                            w-full">
+                            <span>Sin impuestos</span><span id="woT">$&nbsp;--</span>
+                        </div>
+                        <div class="flex 
+                            flex-row 
+                            justify-between 
+                            w-full">
+                            <span>Impuestos totales</span><span id="totalT">$&nbsp;--</span>
+                        </div>
+                    </div>
+                    <div class="flex 
+                        flex-row 
+                        justify-between 
+                        w-full">
+                        <span>Total</span><span class="flex 
+                            items-center 
+                            font-bold 
+                            text-xl">
+                            <div class="transition-transform 
+                                active:scale-85 
+                                cursor-pointer">
+                                <span>$&nbsp;--</span>
+                                <div
+                                    class="relative 
+                                        max-w-fit 
+                                        min-w-min 
+                                        inline-flex 
+                                        items-center 
+                                        justify-between 
+                                        box-border 
+                                        whitespace-nowrap 
+                                        px-1 
+                                        h-6 
+                                        text-tiny 
+                                        rounded-full 
+                                        bg-default 
+                                        text-default-foreground 
+                                        ml-2">
+                                    <span class="flex-1 
+                                        text-inherit 
+                                        font-normal 
+                                        px-1"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-copy text-black">
+                                            <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                                            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+                                        </svg></span>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                    <button class="hidden">Guardar gasto</button>
+                </div>
+            </div>
+            <div class="flex 
+                w-full 
+                flex-col 
+                gap-2">
+                <div data-slot="base" class="inline-flex 
+                    w-full" aria-label="Options">
+                    <div data-slot="tabList"
+                        class="flex 
+                            p-1 
+                            h-fit 
+                            gap-2 
+                            items-center 
+                            flex-nowrap 
+                            overflow-x-scroll 
+                            scrollbar-hide 
+                            bg-default-100 
+                            rounded-full 
+                            w-full"
+                        aria-label="Options" role="tablist" aria-orientation="horizontal">
+                        <button data-slot="tab" tabindex="0" data-key="tarjeta"
+                            aria-selected="true" role="tab"
+                            class="z-0 
+                                px-3 
+                                py-1 
+                                flex 
+                                group 
+                                relative 
+                                justify-center 
+                                items-center 
+                                cursor-pointer 
+                                transition-opacity 
+                                tap-highlight-transparent 
+                                data-[disabled=true]:cursor-not-allowed 
+                                data-[disabled=true]:opacity-30 
+                                data-[hover-unselected=true]:opacity-disabled 
+                                outline-none 
+                                data-[focus-visible=true]:z-10 
+                                data-[focus-visible=true]:outline-2 
+                                data-[focus-visible=true]:outline-focus 
+                                data-[focus-visible=true]:outline-offset-2 
+                                text-medium rounded-full 
+                                flex-1 
+                                w-full 
+                                h-[40px]"
+                            type="button" data-selected="true">
+                            <span class="absolute 
+                                z-0 
+                                inset-0 
+                                rounded-full 
+                                bg-background 
+                                dark:bg-default 
+                                shadow-small"
+                                data-slot="cursor" style="transform: none; transform-origin: 50% 50% 0px"></span>
+                            <div class="relative 
+                                z-10 whitespace-nowrap 
+                                transition-colors 
+                                text-default-500 
+                                group-data-[selected=true]:text-default-foreground"
+                                data-slot="tabContent">
+                                <div class="flex items-center text-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-credit-card inline mr-1">
+                                        <rect width="20" height="14" x="2" y="5" rx="2"></rect>
+                                        <line x1="2" x2="22" y1="10" y2="10"></line>
+                                    </svg>Tarjeta
+                                </div>
+                            </div>
+                        </button><button data-slot="tab" data-key="cripto"
+                            aria-selected="false" role="tab"
+                            class="z-0 
+                                px-3 py-1 
+                                flex group 
+                                relative 
+                                justify-center 
+                                items-center 
+                                cursor-pointer 
+                                transition-opacity 
+                                tap-highlight-transparent 
+                                data-[disabled=true]:cursor-not-allowed 
+                                data-[disabled=true]:opacity-30 
+                                data-[hover-unselected=true]:opacity-disabled 
+                                outline-none 
+                                data-[focus-visible=true]:z-10 
+                                data-[focus-visible=true]:outline-2 
+                                data-[focus-visible=true]:outline-focus 
+                                data-[focus-visible=true]:outline-offset-2 
+                                text-medium 
+                                rounded-full 
+                                flex-1 
+                                w-full 
+                                h-[40px]"
+                            type="button" tabindex="-1">
+                            <div class="relative 
+                                z-10 whitespace-nowrap 
+                                transition-colors 
+                                text-default-500 
+                                group-data-[selected=true]:text-default-foreground"
+                                data-slot="tabContent">
+                                <div class="flex 
+                                    items-center 
+                                    text-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-bitcoin inline mr-1">
+                                        <path
+                                            d="M11.767 19.089c4.924.868 6.14-6.025 1.216-6.894m-1.216 6.894L5.86 18.047m5.908 1.042-.347 1.97m1.563-8.864c4.924.869 6.14-6.025 1.215-6.893m-1.215 6.893-3.94-.694m5.155-6.2L8.29 4.26m5.908 1.042.348-1.97M7.48 20.364l3.126-17.727">
+                                        </path>
+                                    </svg>Crypto
+                                </div>
+                            </div>
+                        </button><button data-slot="tab" tabindex="-1" data-key="mep"
+                            aria-selected="false" role="tab"
+                            class="z-0 
+                                px-3 
+                                py-1 
+                                flex group 
+                                relative 
+                                justify-center 
+                                items-center 
+                                cursor-pointer 
+                                transition-opacity 
+                                tap-highlight-transparent 
+                                data-[disabled=true]:cursor-not-allowed 
+                                data-[disabled=true]:opacity-30 
+                                data-[hover-unselected=true]:opacity-disabled 
+                                outline-none 
+                                data-[focus-visible=true]:z-10 
+                                data-[focus-visible=true]:outline-2 
+                                data-[focus-visible=true]:outline-focus 
+                                data-[focus-visible=true]:outline-offset-2 
+                                text-medium 
+                                rounded-full 
+                                flex-1 
+                                w-full 
+                                h-[40px]"
+                            type="button">
+                            <div class="relative 
+                                z-10 whitespace-nowrap 
+                                transition-colors 
+                                text-default-500 
+                                group-data-[selected=true]:text-default-foreground"
+                                data-slot="tabContent">
+                                <div class="flex items-center text-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-landmark inline mr-1">
+                                        <line x1="3" x2="21" y1="22" y2="22"></line>
+                                        <line x1="6" x2="6" y1="18" y2="11"></line>
+                                        <line x1="10" x2="10" y1="18" y2="11"></line>
+                                        <line x1="14" x2="14" y1="18" y2="11"></line>
+                                        <line x1="18" x2="18" y1="18" y2="11"></line>
+                                        <polygon points="12 2 20 7 4 7"></polygon>
+                                    </svg>MEP
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer
+            px-5
+            py-3">
+            <span class="infoDolar">Dólar oficial AR$ <span id="dollarRate">1230</span> by Dolarito.ar - 30 de
+                diciembre del 2024.</span>
+        </div>
+        <div class="containerAddToCartBtn">
+            <button class="z-0 
+                group 
+                relative 
+                inline-flex 
+                items-center 
+                justify-center 
+                box-border 
+                appearance-none 
+                select-none 
+                whitespace-nowrap 
+                font-normal 
+                subpixel-antialiased 
+                overflow-hidden 
+                tap-highlight-transparent 
+                data-[pressed=true]:scale-[0.97] 
+                outline-none 
+                data-[focus-visible=true]:z-10 
+                data-[focus-visible=true]:outline-2 
+                data-[focus-visible=true]:outline-focus 
+                data-[focus-visible=true]:outline-offset-2 
+                px-6 
+                min-w-24 
+                h-12 
+                text-medium 
+                gap-3 
+                rounded-full 
+                [&>svg]:max-w-[theme(spacing.8)] 
+                transition-transform-colors-opacity 
+                motion-reduce:transition-none 
+                bg-success 
+                text-success-foreground 
+                data-[hover=true]:opacity-hover 
+                shadow-lg" id="addToCartBtn">Agregar al carrito</button>
         </div>
         <div class="cartContainer" id="cartContainer">
-            <h3>Carrito de Compras</h3>
+            <h3>Carrito</h3>
             <ul id="cartItemsList"></ul>
-            <div class="cartTotal" id="cartTotal">Total: AR$ 0.00</div>
+            <div class="cartTotal 
+                text-xl" 
+                id="cartTotal">Total: $ 0.00</div>
         </div>
-    </section>
-    <script src="./script.js"></script>
+    </main>
+    <script type="module" src="./src/main.js"></script>
 </body>
 
 </html>
