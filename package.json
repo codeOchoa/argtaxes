@@ -1,6 +1,6 @@
 {
   "name": "argtaxes",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Simulador de impuestos en compras online",
   "main": "index.js",
   "scripts": {
